@@ -1,5 +1,24 @@
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
-<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+{%- assign project = site.data.projects | where: "id", page.project | first -%}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title %}{{ page.title }} - {% endif %}{% if project %}{{ project.name }} - {% endif %}{{ site.title }}</title>
+<meta name="description" content="{{ page.description | default: site.subtitle }}">
+<link rel="icon" href="{{ '/assets/images/alkhazina_small.png' | relative_url }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+<script>
+  {%- comment -%} Runs before first paint so the saved theme never flashes. {%- endcomment %}
+  (() => {
+    let theme;
+    try {
+      theme = localStorage.getItem('alkhizanah-theme');
+    } catch {}
+    document.documentElement.dataset.theme =
+      theme || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  })();
+</script>
 <script defer src="{{ '/assets/js/theme.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/menu.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/github-stats.js' | relative_url }}"></script>

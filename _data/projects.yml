@@ -1,24 +1,61 @@
-- name: Al Khizanah Core
-  description: Core tooling and foundational packages maintained by the Al Khizanah organization.
-  repo_url: https://github.com/alkhizanah/al-khizanah-core
-  docs_url: /docs/al-khizanah-core/
-  stars: 0
-  forks: 0
-- name: Al Khizanah Web
-  description: Web-focused applications and templates for community-driven products.
-  repo_url: https://github.com/alkhizanah/al-khizanah-web
-  docs_url: /docs/al-khizanah-web/
-  stars: 0
-  forks: 0
-- name: Al Khizanah API
-  description: APIs and services that power shared organization features and integrations.
-  repo_url: https://github.com/alkhizanah/al-khizanah-api
-  docs_url: /docs/al-khizanah-api/
-  stars: 0
-  forks: 0
-- name: Al Khizanah Labs
-  description: Experimental prototypes and research projects from the organization team.
-  repo_url: https://github.com/alkhizanah/al-khizanah-labs
-  docs_url: /docs/al-khizanah-labs/
-  stars: 0
-  forks: 0
+# Grouped by category in the order listed. Docs live in _docs/<id>/ and are linked automatically.
+
+- id: nur
+  name: Nur
+  category: Languages
+  repo: alkhizanah/nur
+  description: A scripting language for ease of use.
+  topics: [programming language, interpreter, virtual machine]
+
+- id: way
+  name: Way
+  category: Languages
+  repo: alkhizanah/way
+  description: A systems programming language for the impatient.
+  topics: [compiler, systems language]
+
+- id: tree-sitter-nur
+  name: tree-sitter Nur
+  category: Languages
+  repo: alkhizanah/tree-sitter-nur
+  description: Nur language grammar for tree-sitter.
+
+- id: fajr
+  name: Fajr
+  category: Systems
+  repo: alkhizanah/fajr
+  description: A modern and elegant operating system for programmers.
+  topics: [operating system]
+
+- id: bento
+  name: Bento
+  category: Systems
+  repo: alkhizanah/bento
+  description: A collection of macros intended at making assembly more convenient to write and a bit closer to C. Only for x86_64 Linux and the FASM assembler (for now).
+  topics: [assembly, fasm]
+
+- id: qalam
+  name: Qalam
+  category: Tools
+  repo: alkhizanah/qalam
+  description: A modal text editor.
+  topics: [editor]
+
+- id: mkc
+  name: mkc
+  category: Tools
+  repo: alkhizanah/mkc
+  description: A straight-forward build tool for C/C++ projects.
+  topics: [c, cpp, build tool]
+
+- id: aqsa
+  name: Aqsa
+  category: Tools
+  repo: alkhizanah/aqsa
+  description: A fast red-teaming toolkit featuring a very flexible module interface.
+
+- id: compute
+  name: Compute
+  category: Mathematics
+  repo: alkhizanah/compute
+  description: An attempt to make a computer algebra system.

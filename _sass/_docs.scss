@@ -1,0 +1,115 @@
+.docs {
+    display: grid;
+    grid-template-columns: 14rem minmax(0, 1fr) 12rem;
+    align-items: start;
+    gap: 3rem;
+    padding-top: 2.5rem;
+}
+
+.docs-sidebar,
+.docs-toc {
+    position: sticky;
+    top: calc(var(--header-height) + 2.5rem);
+    max-height: calc(100vh - var(--header-height) - 4rem);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    font-size: var(--step--1);
+}
+
+.docs-project {
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid var(--rule);
+}
+
+.docs-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--muted);
+}
+
+.docs-project-name {
+    margin-top: 1rem;
+    font-size: var(--step-1);
+    font-weight: 600;
+}
+
+.docs-project-repo {
+    margin: 0.125rem 0 0.5rem;
+    color: var(--muted);
+}
+
+.docs-nav h2,
+.docs-toc h2 {
+    margin: 1.25rem 0 0.375rem;
+    font-size: var(--step--1);
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.docs-nav h2:first-child,
+.docs-toc h2 {
+    margin-top: 0;
+}
+
+.docs-nav a,
+.docs-toc a {
+    display: block;
+    padding: 0.3rem 0 0.3rem 0.875rem;
+    border-left: 2px solid var(--rule);
+    color: var(--muted);
+}
+
+.docs-nav a:hover,
+.docs-toc a:hover {
+    color: var(--text);
+}
+
+.docs-nav a[aria-current],
+.docs-toc a.active {
+    border-left-color: var(--accent);
+    color: var(--text);
+    font-weight: 500;
+}
+
+.docs-toc .toc-h3 a {
+    padding-left: 1.75rem;
+}
+
+@media (max-width: 1100px) {
+    .docs {
+        grid-template-columns: 14rem minmax(0, 1fr);
+    }
+
+    .docs-toc {
+        display: none;
+    }
+}
+
+@media (max-width: 800px) {
+    .docs {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+        padding-top: 1.5rem;
+    }
+
+    /* Lets the project summary sit above the article and the page list below it. */
+    .docs-sidebar {
+        display: contents;
+    }
+
+    .docs-project {
+        margin-bottom: 0;
+    }
+
+    .docs-content {
+        order: 1;
+    }
+
+    .docs-nav {
+        order: 2;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--rule);
+    }
+}

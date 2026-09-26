@@ -1,0 +1,44 @@
+.intro {
+    padding: 6rem 0 3.5rem;
+}
+
+.wordmark {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 2rem;
+    font-size: var(--step-4);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+
+.wordmark-latin {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+}
+
+.wordmark-mark {
+    height: 0.72em;
+    border-radius: 0.08em;
+}
+
+.wordmark-arabic {
+    font-family: var(--font-arabic);
+    font-weight: 500;
+    letter-spacing: 0;
+}
+
+.intro-text {
+    margin-top: 1.25rem;
+    color: var(--muted);
+    font-size: var(--step-1);
+}
+
+@media (max-width: 720px) {
+    .intro {
+        padding: 3.5rem 0 2.5rem;
+    }
+}

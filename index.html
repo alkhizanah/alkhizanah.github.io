@@ -1,0 +1,49 @@
+---
+layout: default
+---
+{%- assign documented_ids = site.docs | map: "project" | uniq -%}
+{%- assign documented_names = "" | split: "" -%}
+{%- for project in site.data.projects -%}
+  {%- if documented_ids contains project.id -%}
+    {%- assign documented_names = documented_names | push: project.name -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign latest_post = site.posts | first -%}
+
+<section class="intro wrap">
+  <h1 class="wordmark">
+    <span class="wordmark-latin">
+      <img src="{{ '/assets/images/alkhazina_small.png' | relative_url }}" alt="" class="wordmark-mark">
+      {{ site.title }}
+    </span>
+    <span class="wordmark-arabic" lang="ar" dir="rtl">الخزانة</span>
+  </h1>
+  <p class="intro-text">{{ site.subtitle }}.</p>
+</section>
+
+<nav class="directory wrap" aria-label="Site sections">
+  <a class="directory-row" href="{{ '/projects/' | relative_url }}">
+    <span class="directory-title">Projects</span>
+    <span class="directory-text">{{ site.data.projects | map: "name" | array_to_sentence_string }}.</span>
+    <span class="directory-meta">{{ site.data.projects.size }} projects</span>
+  </a>
+
+  <a class="directory-row" href="{{ '/docs/' | relative_url }}">
+    <span class="directory-title">Documentation</span>
+    <span class="directory-text">Guides and references for {{ documented_names | array_to_sentence_string }}.</span>
+    <span class="directory-meta">{{ site.docs.size }} pages</span>
+  </a>
+
+  <a class="directory-row" href="{{ '/posts/' | relative_url }}">
+    <span class="directory-title">Posts</span>
+    <span class="directory-text">{% if latest_post %}Latest: {{ latest_post.title }}{% else %}News and announcements from the team.{% endif %}</span>
+    {% if latest_post %}
+    <span class="directory-meta"><time datetime="{{ latest_post.date | date_to_xmlschema }}">{{ latest_post.date | date: "%b %-d, %Y" }}</time></span>
+    {% endif %}
+  </a>
+
+  <a class="directory-row" href="{{ '/about/' | relative_url }}">
+    <span class="directory-title">About</span>
+    <span class="directory-text">Who we are, what we value and how to contribute.</span>
+  </a>
+</nav>

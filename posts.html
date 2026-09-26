@@ -1,0 +1,28 @@
+---
+layout: default
+title: Posts
+permalink: /posts/
+---
+
+<header class="page-header wrap">
+  <h1>Posts</h1>
+  <p>News, releases and announcements from the team.</p>
+</header>
+
+<div class="wrap">
+  {% if site.posts.size > 0 %}
+  <ol class="post-list">
+    {% for post in site.posts %}
+    <li class="post-item">
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+      <div>
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+  {% else %}
+  <p class="empty-state">No posts yet. Follow the <a href="{{ site.organization_github }}">GitHub organization</a> for updates.</p>
+  {% endif %}
+</div>
