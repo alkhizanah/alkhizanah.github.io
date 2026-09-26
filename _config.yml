@@ -7,21 +7,29 @@ baseurl: ""
 organization_github: https://github.com/alkhizanah
 
 markdown: kramdown
+highlighter: rouge
+
+sass:
+  style: expanded
+  sourcemap: development
+
 permalink: /posts/:title/
 
 collections:
   docs:
     output: true
-    permalink: /docs/:name/
+    permalink: /docs/:path/
 
 defaults:
   - scope:
-      path: ""
       type: posts
     values:
       layout: post
   - scope:
-      path: ""
       type: docs
     values:
       layout: doc
+
+exclude:
+  - README.md
+  - vendor/

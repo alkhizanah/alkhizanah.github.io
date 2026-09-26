@@ -1,0 +1,23 @@
+---
+layout: default
+title: Documentation
+permalink: /docs/
+---
+
+<header class="page-header wrap">
+  <h1>Documentation</h1>
+  <p>Guides and references for our projects. Projects not listed here are documented in their repositories.</p>
+</header>
+
+<nav class="directory wrap" aria-label="Documented projects">
+  {% for project in site.data.projects %}
+  {% assign project_docs = site.docs | where: "project", project.id | sort: "order" %}
+  {% if project_docs.size > 0 %}
+  <a class="directory-row" href="{{ project_docs.first.url | relative_url }}">
+    <span class="directory-title">{{ project.name }}</span>
+    <span class="directory-text">{{ project.description }}</span>
+    <span class="directory-meta">{{ project_docs.size }} {% if project_docs.size == 1 %}page{% else %}pages{% endif %}</span>
+  </a>
+  {% endif %}
+  {% endfor %}
+</nav>

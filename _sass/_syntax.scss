@@ -1,0 +1,23 @@
+/* Token classes emitted by Rouge */
+.highlight {
+    .c, .c1, .cm, .cs, .cp, .cpf {
+        color: var(--syntax-comment);
+        font-style: italic;
+    }
+
+    .k, .kc, .kd, .kn, .kp, .kr, .kt, .o, .ow {
+        color: var(--syntax-keyword);
+    }
+
+    .s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sr, .ss, .sx {
+        color: var(--syntax-string);
+    }
+
+    .m, .mb, .mf, .mh, .mi, .mo, .il {
+        color: var(--syntax-number);
+    }
+
+    .nf, .fm, .nb, .bp {
+        color: var(--syntax-function);
+    }
+}

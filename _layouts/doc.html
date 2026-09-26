@@ -1,0 +1,52 @@
+---
+layout: default
+---
+{%- assign project = site.data.projects | where: "id", page.project | first -%}
+{%- assign project_docs = site.docs | where: "project", page.project | sort: "order" -%}
+
+<div class="docs wrap">
+  <aside class="docs-sidebar">
+    <div class="docs-project">
+      <a href="{{ '/docs/' | relative_url }}" class="docs-back">
+        {% include icons/arrow-left.svg %}
+        All documentation
+      </a>
+      <p class="docs-project-name">
+        <a href="{{ project_docs.first.url | relative_url }}">{{ project.name }}</a>
+      </p>
+      <p class="docs-project-repo">
+        <a href="https://github.com/{{ project.repo }}" target="_blank" rel="noopener">{{ project.repo }}</a>
+      </p>
+      {% include repo-stats.html repo=project.repo class="repo-stats" %}
+    </div>
+
+    {% if project_docs.size > 1 %}
+    <nav class="docs-nav" aria-label="{{ project.name }} documentation">
+      {% assign sections = project_docs | group_by: "section" %}
+      {% for section in sections %}
+      {% if section.name != "" %}
+      <h2>{{ section.name }}</h2>
+      {% endif %}
+      <ul>
+        {% for doc in section.items %}
+        <li>
+          <a href="{{ doc.url | relative_url }}"{% if doc.url == page.url %} aria-current="page"{% endif %}>{{ doc.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endfor %}
+    </nav>
+    {% endif %}
+  </aside>
+
+  <article class="docs-content prose">
+    {{ content }}
+  </article>
+
+  <nav id="toc" class="docs-toc" aria-label="On this page" hidden>
+    <h2>On this page</h2>
+    <ul></ul>
+  </nav>
+</div>
+
+<script defer src="{{ '/assets/js/docs.js' | relative_url }}"></script>

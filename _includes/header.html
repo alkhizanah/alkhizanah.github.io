@@ -1,0 +1,32 @@
+{%- assign url_parts = page.url | split: "/" -%}
+{%- capture section_url %}/{{ url_parts[1] }}/{% endcapture -%}
+<header class="site-header">
+  <div class="site-header-inner wrap">
+    <a href="{{ '/' | relative_url }}" class="brand">
+      <img src="{{ '/assets/images/alkhazina_small.png' | relative_url }}" alt="" class="brand-mark">
+      {{ site.title }}
+    </a>
+
+    <button type="button" id="menu-toggle" class="icon-button menu-toggle" aria-label="Menu" aria-controls="site-menu" aria-expanded="false">
+      {% include icons/menu.svg class="icon-open" %}
+      {% include icons/close.svg class="icon-close" %}
+    </button>
+
+    <nav id="site-menu" class="site-nav" aria-label="Main">
+      <ul>
+        {% for item in site.data.navigation %}
+        <li>
+          <a href="{{ item.url | relative_url }}"{% if item.url == section_url %} aria-current="true"{% endif %}>{{ item.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      <a href="{{ site.organization_github }}" class="icon-button" target="_blank" rel="noopener" aria-label="Al Khizanah on GitHub">
+        {% include icons/github.svg %}
+      </a>
+      <button type="button" id="theme-toggle" class="icon-button" aria-label="Toggle theme">
+        {% include icons/sun.svg class="icon-sun" %}
+        {% include icons/moon.svg class="icon-moon" %}
+      </button>
+    </nav>
+  </div>
+</header>

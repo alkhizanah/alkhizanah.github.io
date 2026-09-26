@@ -1,0 +1,88 @@
+.post-list {
+    border-top: 1px solid var(--rule);
+}
+
+.post-item {
+    display: grid;
+    grid-template-columns: 14rem minmax(0, 1fr);
+    align-items: baseline;
+    gap: 0.25rem 2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--rule);
+}
+
+.post-item time {
+    color: var(--muted);
+    font-size: var(--step--1);
+}
+
+.post-item h2 {
+    font-size: var(--step-2);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+}
+
+.post-item p {
+    max-width: var(--measure);
+    margin-top: 0.5rem;
+    color: var(--muted);
+}
+
+.empty-state {
+    color: var(--muted);
+}
+
+.empty-state a {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.article {
+    max-width: var(--measure);
+    padding-top: 4rem;
+}
+
+.article-header {
+    margin-bottom: 2.5rem;
+}
+
+.article-header h1 {
+    font-size: var(--step-3);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+}
+
+.article-meta {
+    margin-top: 0.75rem;
+    color: var(--muted);
+    font-size: var(--step--1);
+}
+
+.article-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+}
+
+.article-footer a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--muted);
+}
+
+.article-footer a:hover {
+    color: var(--accent);
+}
+
+@media (max-width: 720px) {
+    .post-item {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .article {
+        padding-top: 2.5rem;
+    }
+}

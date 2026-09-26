@@ -1,0 +1,43 @@
+---
+layout: default
+title: Projects
+permalink: /projects/
+---
+
+<header class="page-header wrap">
+  <h1>Projects</h1>
+  <p>Everything we build is open source and developed on GitHub.</p>
+</header>
+
+<div class="wrap">
+  {% assign categories = site.data.projects | group_by: "category" %}
+  {% for category in categories %}
+  <section class="project-group" aria-labelledby="{{ category.name | slugify }}">
+    <h2 id="{{ category.name | slugify }}" class="group-title">{{ category.name }}</h2>
+
+    <ul class="project-list">
+      {% for project in category.items %}
+      {% assign first_doc = site.docs | where: "project", project.id | sort: "order" | first %}
+      <li class="project" id="{{ project.id }}">
+        <h3 class="project-name">{{ project.name }}</h3>
+
+        <div class="project-about">
+          <p>{{ project.description }}</p>
+          {% if project.topics %}
+          <p class="project-topics">{{ project.topics | join: ", " }}</p>
+          {% endif %}
+        </div>
+
+        <div class="project-meta">
+          {% include repo-stats.html repo=project.repo class="repo-stats" %}
+          <p class="project-links">
+            {% if first_doc %}<a href="{{ first_doc.url | relative_url }}">Docs</a>{% endif %}
+            <a href="https://github.com/{{ project.repo }}" target="_blank" rel="noopener">GitHub</a>
+          </p>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+</div>

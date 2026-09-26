@@ -2,37 +2,25 @@
 layout: default
 ---
 
-<article class="post-article wrap fade-in">
-  <!-- Post Header -->
-  <header class="post-header">
-    <div class="post-header-meta">
-      <time class="post-date">{{ page.date | date: "%B %d, %Y" }}</time>
-      {% if page.project %}
-      <span class="post-project-badge">{{ page.project }}</span>
-      {% endif %}
+<div class="wrap">
+  <article class="article">
+    <header class="article-header">
+      <h1>{{ page.title }}</h1>
+      <p class="article-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+        {% if page.author %}by {{ page.author }}{% endif %}
+      </p>
+    </header>
+
+    <div class="prose">
+      {{ content }}
     </div>
 
-    <h1 class="post-title">{{ page.title }}</h1>
-
-    {% if page.author %}
-    <div class="post-author">
-      <span>By {{ page.author }}</span>
-    </div>
-    {% endif %}
-  </header>
-
-  <!-- Post Content -->
-  <div class="post-content">
-    {{ content }}
-  </div>
-
-  <!-- Post Footer -->
-  <footer class="post-footer">
-    <a href="{{ '/posts/' | relative_url }}" class="back-to-posts">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <path d="M12 16l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      Back to all posts
-    </a>
-  </footer>
-</article>
+    <footer class="article-footer">
+      <a href="{{ '/posts/' | relative_url }}">
+        {% include icons/arrow-left.svg %}
+        All posts
+      </a>
+    </footer>
+  </article>
+</div>

@@ -1,0 +1,49 @@
+:root {
+    --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+    --font-arabic: "IBM Plex Sans Arabic", "IBM Plex Sans", sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+
+    --step--1: 0.875rem;
+    --step-0: 1.0625rem;
+    --step-1: 1.3125rem;
+    --step-2: 1.625rem;
+    --step-3: 2.125rem;
+    --step-4: clamp(2.5rem, 7vw, 4.5rem);
+
+    --page-width: 72rem;
+    --measure: 68ch;
+    --header-height: 4rem;
+    --radius: 6px;
+
+    --bg: #f6f7f9;
+    --surface: #eceef2;
+    --text: #15181e;
+    --muted: #5b616e;
+    --rule: #dde1e7;
+    --accent: #c2361b;
+
+    --syntax-keyword: #8a3ffc;
+    --syntax-string: #1f7a3f;
+    --syntax-number: #0b5cad;
+    --syntax-comment: #6b7280;
+    --syntax-function: #9a4d00;
+
+    color-scheme: light;
+}
+
+html[data-theme="dark"] {
+    --bg: #0f1217;
+    --surface: #171b22;
+    --text: #e7e9ed;
+    --muted: #98a0ad;
+    --rule: #262c36;
+    --accent: #ff7a4d;
+
+    --syntax-keyword: #c6a0ff;
+    --syntax-string: #7fd49a;
+    --syntax-number: #79b8ff;
+    --syntax-comment: #7d8590;
+    --syntax-function: #ffb86b;
+
+    color-scheme: dark;
+}
