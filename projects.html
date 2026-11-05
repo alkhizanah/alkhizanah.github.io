@@ -19,7 +19,7 @@ permalink: /projects/
       {% for project in category.items %}
       {% assign first_doc = site.docs | where: "project", project.id | sort: "order" | first %}
       <li class="project" id="{{ project.id }}">
-        <h3 class="project-name">{{ project.name }}</h3>
+        <h3 class="project-name">{{ project.name }}{% if project.arabic %} <span class="project-arabic ink" lang="ar">{{ project.arabic }}</span>{% endif %}</h3>
 
         <div class="project-about">
           <p>{{ project.description }}</p>

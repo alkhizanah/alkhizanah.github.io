@@ -2,6 +2,7 @@
 
 - id: nur
   name: Nur
+  arabic: نور
   category: Languages
   repo: alkhizanah/nur
   description: A scripting language for ease of use.
@@ -22,6 +23,7 @@
 
 - id: fajr
   name: Fajr
+  arabic: فجر
   category: Systems
   repo: alkhizanah/fajr
   description: A modern and elegant operating system for programmers.
@@ -36,6 +38,7 @@
 
 - id: qalam
   name: Qalam
+  arabic: قلم
   category: Tools
   repo: alkhizanah/qalam
   description: A modal text editor.
@@ -50,6 +53,7 @@
 
 - id: aqsa
   name: Aqsa
+  arabic: أقصى
   category: Tools
   repo: alkhizanah/aqsa
   description: A fast red-teaming toolkit featuring a very flexible module interface.
