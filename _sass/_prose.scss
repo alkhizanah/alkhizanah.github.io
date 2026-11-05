@@ -43,7 +43,13 @@
 .prose a {
     color: var(--accent);
     text-decoration: underline;
-    text-underline-offset: 0.15em;
+    text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+}
+
+.prose a:hover {
+    text-decoration-color: currentColor;
 }
 
 .prose strong {
@@ -98,12 +104,6 @@
     padding-left: 1.25rem;
     border-left: 3px solid var(--rule);
     color: var(--muted);
-}
-
-.prose hr {
-    border: none;
-    border-top: 1px solid var(--rule);
-    margin: 2.5rem 0;
 }
 
 .prose table {

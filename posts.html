@@ -14,7 +14,7 @@ permalink: /posts/
   <ol class="post-list">
     {% for post in site.posts %}
     <li class="post-item">
-      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+      <p class="post-dates"><time datetime="{{ post.date | date_to_xmlschema }}" data-hijri>{{ post.date | date: "%b %-d, %Y" }}</time></p>
       <div>
         <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
         <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>

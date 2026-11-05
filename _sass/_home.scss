@@ -26,9 +26,8 @@
 }
 
 .wordmark-arabic {
-    font-family: var(--font-arabic);
-    font-weight: 500;
-    letter-spacing: 0;
+    font-size: 1.2em;
+    line-height: 1;
 }
 
 .intro-text {
@@ -41,4 +40,36 @@
     .intro {
         padding: 3.5rem 0 2.5rem;
     }
+}
+
+.not-found {
+    padding: 5rem 0 2rem;
+}
+
+.not-found-numeral {
+    font-size: clamp(6rem, 22vw, 12rem);
+    line-height: 1;
+    text-align: left;
+}
+
+.not-found h1 {
+    margin-top: 1.5rem;
+    font-size: var(--step-3);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+}
+
+.not-found p:last-child {
+    max-width: var(--measure);
+    margin-top: 0.75rem;
+    color: var(--muted);
+    font-size: var(--step-1);
+}
+
+.not-found a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+    text-underline-offset: 0.2em;
 }

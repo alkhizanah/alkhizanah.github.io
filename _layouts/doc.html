@@ -3,6 +3,10 @@ layout: default
 ---
 {%- assign project = site.data.projects | where: "id", page.project | first -%}
 {%- assign project_docs = site.docs | where: "project", page.project | sort: "order" -%}
+{%- for doc in project_docs -%}
+  {%- if doc.url == page.url -%}{%- assign next_index = forloop.index -%}{%- endif -%}
+{%- endfor -%}
+{%- assign next_doc = project_docs[next_index] -%}
 
 <div class="docs wrap">
   <aside class="docs-sidebar">
@@ -13,6 +17,7 @@ layout: default
       </a>
       <p class="docs-project-name">
         <a href="{{ project_docs.first.url | relative_url }}">{{ project.name }}</a>
+        {% if project.arabic %}<span class="docs-project-arabic ink" lang="ar">{{ project.arabic }}</span>{% endif %}
       </p>
       <p class="docs-project-repo">
         <a href="https://github.com/{{ project.repo }}" target="_blank" rel="noopener">{{ project.repo }}</a>
@@ -39,9 +44,20 @@ layout: default
     {% endif %}
   </aside>
 
-  <article class="docs-content prose">
-    {{ content }}
-  </article>
+  <div class="docs-content">
+    <article class="prose">
+      {{ content }}
+    </article>
+
+    {% if next_doc %}
+    <nav class="catchword" aria-label="Next page">
+      <a href="{{ next_doc.url | relative_url }}">
+        <span class="catchword-label">Next</span>
+        <span class="catchword-title">{{ next_doc.title }}</span>
+      </a>
+    </nav>
+    {% endif %}
+  </div>
 
   <nav id="toc" class="docs-toc" aria-label="On this page" hidden>
     <h2>On this page</h2>
